@@ -14,7 +14,7 @@ const useFetch = (url) => {
             setError(false);
             try {
                 // Add base URL if the URL doesn't start with http
-                const fullUrl = url.startsWith('http') ? url : `http://localhost:7700/api${url}`;
+                const fullUrl = url.startsWith('http') ? url : `https://shapesync-5rkn.onrender.com/api${url}`;
                 const res = await axios.get(fullUrl);
                 setData(res.data);
             } catch (err) {
@@ -30,7 +30,7 @@ const useFetch = (url) => {
         setLoading(true);
         setError(false);
         try {
-            const fullUrl = url.startsWith('http') ? url : `http://localhost:7700/api${url}`;
+            const fullUrl = url.startsWith('http') ? url : `https://shapesync-5rkn.onrender.com/api${url}`;
             const res = await axios.get(fullUrl);
             setData(res.data);
         } catch (err) {
