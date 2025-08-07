@@ -51,7 +51,7 @@ function Login() {
         dispatch({ type: "LOGIN_START" });
         
         try {
-            const res = await axios.post("http://localhost:7700/api/auth/login", credentials);
+            const res = await axios.post("https://shapesync-5rkn.onrender.com/api/auth/login", credentials);
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
             navigate('/home');
         } catch (err) {
