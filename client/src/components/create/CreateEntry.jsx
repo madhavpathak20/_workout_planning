@@ -69,7 +69,7 @@ const CreateEntry = ({ setOpen }) => {
         }
 
         try {
-            await axios.post('http://localhost:7700/api/entries/', newEntry, {
+            await axios.post('https://shapesync-5rkn.onrender.com/api/entries/', newEntry, {
                 withCredentials: true
             });
             setOpen(false);
