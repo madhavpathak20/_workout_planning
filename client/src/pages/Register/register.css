@@ -66,6 +66,20 @@ form .txt_field_img {
     outline: none;
 }
 
+.txt_field input.error {
+    border-bottom: 2px solid #ff4444;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+}
+
 .registerCard form .image {
     display: flex;
     flex-direction: column;
@@ -109,6 +123,12 @@ form .txt_field_img {
     font-weight: 700;
     cursor: pointer;
     outline: none;
+}
+
+.login_button .button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    color: #666666;
 }
 
 .signup_link {

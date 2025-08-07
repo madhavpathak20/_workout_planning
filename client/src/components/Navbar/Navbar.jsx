@@ -6,20 +6,30 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../authContext"
-
+import axios from "axios";
 
 const Navbar = () => {
 
     const navigate = useNavigate()
 
     const { user, dispatch } = useContext(AuthContext)
-    const handleClick = async (e) => {
+    
+    const handleLogout = async (e) => {
         e.preventDefault();
-        dispatch({ type: "LOGOUT" });
-        navigate("/")
+        try {
+            // Call server logout endpoint if it exists
+            await axios.post("http://localhost:7700/api/auth/logout", {}, {
+                withCredentials: true
+            });
+        } catch (error) {
+            console.log("Logout error:", error);
+        } finally {
+            // Clear local storage and context
+            localStorage.removeItem("user");
+            dispatch({ type: "LOGOUT" });
+            navigate("/");
+        }
     }
-
-
 
     return (
         <div className='navContainer'>
@@ -42,14 +52,16 @@ const Navbar = () => {
                         <li><p>Entries</p></li>
                     </Link>
                     {user ? (<>
-
+                        <li onClick={handleLogout} style={{ cursor: "pointer" }}>
+                            <p>Logout</p>
+                        </li>
                         <Link to={`/user/${user._id}`}>
-                            <li onClick={handleClick} style={{ cursor: "pointer" }}>
-                            <p>Logout</p></li>
-                            <li><div className="profilePicture">
-                                <img src={user.profilePicture || 
-                                "https://i.ibb.co/MBtjqXQ/no-avatar.gif"} alt="" />
-                            </div></li>
+                            <li>
+                                <div className="profilePicture">
+                                    <img src={user.profilePicture || 
+                                    "https://i.ibb.co/MBtjqXQ/no-avatar.gif"} alt="" />
+                                </div>
+                            </li>
                             <li id="usernamename"><p>{user.username}</p></li>
                         </Link>
                     </>

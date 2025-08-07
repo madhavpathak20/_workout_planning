@@ -13,7 +13,7 @@ const Footer = () => {
             "color": "white",
             "fontWeight": "800"
         }}>
-            <p>ShapeSync</p>
+            <p>ShapeSync by Madhav</p>
         </div>
     )
 }

@@ -11,13 +11,15 @@ const useFetch = (url) => {
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
+            setError(false);
             try {
-
-                const res = await axios.get(url)
-
+                // Add base URL if the URL doesn't start with http
+                const fullUrl = url.startsWith('http') ? url : `http://localhost:7700/api${url}`;
+                const res = await axios.get(fullUrl);
                 setData(res.data);
             } catch (err) {
                 setError(err);
+                console.error("Fetch error:", err);
             }
             setLoading(false);
         };
@@ -26,12 +28,14 @@ const useFetch = (url) => {
 
     const reFetch = async () => {
         setLoading(true);
+        setError(false);
         try {
-            const res = await axios.get(url)
-
+            const fullUrl = url.startsWith('http') ? url : `http://localhost:7700/api${url}`;
+            const res = await axios.get(fullUrl);
             setData(res.data);
         } catch (err) {
             setError(err);
+            console.error("ReFetch error:", err);
         }
         setLoading(false);
     };

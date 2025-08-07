@@ -57,6 +57,25 @@
     padding: 10px;
     margin: 15px;
     font-family: "Dosis", sans-serif;
+    position: relative;
+}
+
+.formInput input.error,
+.formInput select.error,
+.formInput textarea.error {
+    border: 2px solid #ff4444;
+    background-color: #fff5f5;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    left: 15px;
+    text-align: left;
 }
 
 .mButton {
@@ -72,8 +91,14 @@
     transition: all 0.2s ease-in-out;
 }
 
-.mButton:hover {
+.mButton:hover:not(:disabled) {
     background-color: var(--orange);
+}
+
+.mButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    color: #666666;
 }
 
 #options {
@@ -82,6 +107,7 @@
     justify-content: center;
     flex-direction: column;
     font-size: 1.2rem;
+    position: relative;
 }
 
 #options label {
@@ -90,4 +116,9 @@
 
 #options select {
     padding: 10px;
+}
+
+#options select.error {
+    border: 2px solid #ff4444;
+    background-color: #fff5f5;
 }
