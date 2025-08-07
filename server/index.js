@@ -1,5 +1,5 @@
 //index.js
-
+//added "type": "module" in package.json to use ES6 imports
 import express from "express";
 import dotenv from "dotenv";
 import helmet from "helmet";
