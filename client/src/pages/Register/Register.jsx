@@ -84,7 +84,7 @@ function Register() {
                 console.log("Image upload not implemented yet");
             }
 
-            await axios.post("http://localhost:7700/api/auth/register", userData);
+            await axios.post("https://shapesync-5rkn.onrender.com/api/auth/register", userData);
             alert("Registration successful! Please login.");
             navigate("/login");
         } catch (err) {
