@@ -18,7 +18,7 @@ const Navbar = () => {
         e.preventDefault();
         try {
             // Call server logout endpoint if it exists
-            await axios.post("http://localhost:7700/api/auth/logout", {}, {
+            await axios.post("https://shapesync-5rkn.onrender.com/api/auth/logout", {}, {
                 withCredentials: true
             });
         } catch (error) {
