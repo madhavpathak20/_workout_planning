@@ -73,7 +73,7 @@ const CreateMeal = ({ setOpen }) => {
         }
 
         try {
-            await axios.post("http://localhost:7700/api/meals", newMeal, {
+            await axios.post("https://shapesync-5rkn.onrender.com/api/meals", newMeal, {
                 withCredentials: true
             });
             setOpen(false);
