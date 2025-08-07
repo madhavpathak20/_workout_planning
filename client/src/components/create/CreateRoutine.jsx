@@ -68,7 +68,7 @@ const CreateRoutine = ({ setOpen }) => {
         }
 
         try {
-            await axios.post("http://localhost:7700/api/routines", newRoutine, {
+            await axios.post("https://shapesync-5rkn.onrender.com/api/routines", newRoutine, {
                 withCredentials: true
             });
             setOpen(false);
